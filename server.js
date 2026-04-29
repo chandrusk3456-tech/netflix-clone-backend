@@ -5,6 +5,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/login", (req, res) => {
+  res.send("Login route working ✅");
+});
+
 const user = {
   email: "test@gmail.com",
   password: "123456",
@@ -22,4 +26,10 @@ app.post("/login", (req, res) => {
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");
+});
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log("Server running");
 });
